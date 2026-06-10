@@ -6,7 +6,7 @@ This is the official implementation of **SGGWSeg**, a novel skeleton-guided dual
 ---
 
 ## 📌 News
-* **[2026/06]** Our paper is currently under review at *ISPRS Journal of Photogrammetry and Remote Sensing*. 
+* **[2026/06]** Our paper is prepared for submission to *ISPRS Journal of Photogrammetry and Remote Sensing*.
 * **[Future]** Code and the **GansuGW Dataset** will be fully released upon the official acceptance of the paper. Stay tuned!
 
 ---
