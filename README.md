@@ -19,16 +19,16 @@
 
 ## Introduction
 
-This is the official implementation of **SGGWSeg**, a skeleton-guided dual-task collaborative framework for extracting linear cultural relics, such as the Great Wall, from high-resolution remote-sensing imagery. SGGWSeg jointly learns semantic regions and skeleton structures, improving the continuity and integrity of narrow, fragmented remains in complex environments.
+This is the official implementation of **SGGWSeg**, a novel skeleton-guided dual-task collaborative framework for high-resolution remote sensing linear cultural remains extraction (e.g., the Great Wall). SGGWSeg jointly optimizes semantic segmentation and skeleton representation learning through a dual-task strategy, enhancing the continuity and completeness of extracted linear remains, especially for narrow and fragmented structures in complex environments.
 
 <a id="news"></a>
 
 ## 📌 News
 
-- **[2026/08]** The SGGWSeg code is publicly available.
-- **[2026/07]** SGGWSeg won the **Gold Award** in the **AI for Science** track of the [3rd Global Digital Intelligence Education Innovation Competition](https://diidea.pku.edu.cn/competition2026/).
-- **[2026/06]** Our paper was prepared for submission to *ISPRS Journal of Photogrammetry and Remote Sensing*.
-- **[Coming soon]** The GansuGW dataset and compatible environment wheels will be released through Baidu Netdisk.
+- **[2026/08/23]** The code of SGGWSeg is available.
+- **[2026/07/26]** Based on our SGGWSeg, our project has won the **Gold Award** in the **AI for Science** track of the [3rd Global Digital Intelligence Education Innovation Competition](https://diidea.pku.edu.cn/competition2026/). Congratulations!
+- **[2026/06/11]** Our paper has been prepared for submission to *ISPRS Journal of Photogrammetry and Remote Sensing*.
+- **[Coming soon]** The GansuGW dataset and pre-built environment packages will be released via Baidu Netdisk.
 
 <a id="graphical-abstract"></a>
 
@@ -38,7 +38,7 @@ This is the official implementation of **SGGWSeg**, a skeleton-guided dual-task 
   <img src="fig/SGGWSeg_GA.png" alt="SGGWSeg graphical abstract" width="90%">
 </p>
 
-The graphical abstract summarizes satellite observation, construction of the multi-temporal and multi-resolution GansuGW dataset, the skeleton-guided dual-task network, and its improvements in segmentation continuity and structural quality.
+The graphical abstract summarizes satellite observation, the construction of the multi-temporal and multi-resolution GansuGW dataset, the skeleton-guided dual-task network, and its improvements in the continuity and completeness of remains extraction.
 
 <a id="methodology"></a>
 
@@ -48,18 +48,16 @@ The graphical abstract summarizes satellite observation, construction of the mul
   <img src="fig/Framework.png" alt="SGGWSeg framework architecture" width="95%">
 </p>
 
-SGGWSeg uses an ImageNet-1K-pretrained SegMAN-S encoder and two collaborative branches for relic semantic segmentation and relic skeleton extraction. Multi-level features are aggregated by the multi-scale context aggregation module, while skeleton-guided enhancement injects linear structural cues into the semantic branch. The two tasks are optimized jointly with segmentation and skeleton supervision.
+Here is the overall architecture of our proposed **SGGWSeg** framework. SGGWSeg adopts a SegMAN-S encoder and two collaborative branches for remains semantic segmentation and skeleton extraction. Multi-level features are aggregated by the multi-scale context aggregation module, while skeleton-guided enhancement injects linear structural cues into the semantic branch. The two tasks are optimized jointly with segmentation and skeleton supervision.
 
 <a id="installation"></a>
 
 ### Environment Installation
 
-The tested environment is Linux x86-64 with Python 3.9.18, PyTorch 2.1.0, and CUDA 11.8. More details are available in [README_env.md](README_env.md).
-
 #### 1. Create the environment
 
 ```bash
-conda create -n sggwseg python=3.9.18 -y
+conda create -n sggwseg python=3.9 -y
 conda activate sggwseg
 python -m pip install --upgrade pip setuptools wheel
 ```
@@ -97,38 +95,6 @@ python -m pip install --no-deps \
 python -m pip install --no-deps mmcv-lite==2.1.0
 ```
 
-#### 5. Verify the environment
-
-```bash
-python - <<'PY'
-import torch
-import natten
-import mamba_ssm
-from osgeo import gdal
-from mamba_ssm.ops.selective_scan_interface import selective_scan_fn
-from models.sggwseg_segmentation import SGGWSeg
-
-assert torch.__version__.startswith("2.1.0")
-assert torch.version.cuda == "11.8"
-assert torch.cuda.is_available()
-assert torch._C._GLIBCXX_USE_CXX11_ABI is False
-
-print("PyTorch:", torch.__version__)
-print("NATTEN:", natten.__version__)
-print("Mamba-SSM:", mamba_ssm.__version__)
-print("GDAL:", gdal.VersionInfo())
-print("Environment check passed.")
-PY
-
-python -m pip check
-```
-
-Place the ImageNet-1K-pretrained SegMAN-S weights at:
-
-```text
-pretrained/SegMAN_Encoder_s.pth.tar
-```
-
 ### Code Entry Points
 
 | Stage | File | Purpose |
@@ -149,12 +115,9 @@ Run the corresponding file with `--help` to view its parameters.
 
 We introduce **GansuGW**, the first large-scale, multi-temporal, and multi-resolution benchmark dataset specifically curated for Great Wall remains.
 
-- **Total samples:** 15,914 high-quality annotated image patches.
-- **Spatial resolution:** 0.25 m to 1 m.
-- **Temporal span:** 2003 to 2025.
-- **Annotations:** three-band optical images with binary Great Wall masks.
-
-GansuGW covers diverse Great Wall sections, acquisition dates, spatial resolutions, preservation conditions, historical periods, and surrounding environments.
+- **Total samples:** 951 original large-scale remote sensing images with corresponding high-quality annotations.
+- **Spatial resolution:** Ranging from 0.25 m to 1 m.
+- **Temporal span:** Spanning from 2003 to 2025, capturing long-term dynamic changes, historical variations, and diverse environmental conditions of the remains.
 
 <a id="downloads"></a>
 
@@ -162,9 +125,9 @@ GansuGW covers diverse Great Wall sections, acquisition dates, spatial resolutio
 
 | Resource | Contents | Download |
 |---|---|---|
-| GansuGW dataset | RGB images, binary labels, and dataset splits | **Baidu Netdisk: coming soon** |
-| Environment wheels | Linux wheels for GDAL 3.4.3, NATTEN 0.17.3, and Mamba-SSM 2.2.4 | **Baidu Netdisk: coming soon** |
-| SegMAN-S pretrained encoder | ImageNet-1K pretrained backbone | [SegMAN](https://github.com/yunxiangfu2001/SegMAN) |
+| GansuGW dataset | RGB images, binary labels, and dataset splits | **Baidu Netdisk: [dataset]()** |
+| Environment wheels | Linux wheels for GDAL 3.4.3, NATTEN 0.17.3, and Mamba-SSM 2.2.4 | **Baidu Netdisk: [wheels](https://pan.baidu.com/s/1HbeKV9WZ1NHX9Er6DG2ypw?pwd=2608)** |
+| SegMAN-S pretrained weights | ImageNet-1K pretrained backbone | **Baidu Netdisk: [weights](https://pan.baidu.com/s/1xGJlWAbUHDk4x3sEMKza3w?pwd=2608)** |
 
 The Baidu Netdisk links and extraction codes will be added after the archives are uploaded.
 
