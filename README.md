@@ -25,10 +25,11 @@ This is the official implementation of **SGGWSeg**, a novel skeleton-guided dual
 
 ## 📌 News
 
+- **[2026/09/08]** The GansuGW dataset is available via Baidu Netdisk.
+- **[2026/09/01]** The codes for our recent works, including [TFCL-Net](https://github.com/HariwW/TFCL-Net) and [GWSegNet](https://github.com/labiao/GWSegNet), are also publicly available, with detailed methodology to be described in forthcoming publications.
 - **[2026/08/23]** The code of SGGWSeg is available.
 - **[2026/07/26]** Based on our SGGWSeg, our project has won the **Gold Award** in the **AI for Science** track of the [3rd Global Digital Intelligence Education Innovation Competition](https://diidea.pku.edu.cn/competition2026/). Congratulations!
 - **[2026/06/11]** Our paper has been prepared for submission to *ISPRS Journal of Photogrammetry and Remote Sensing*.
-- **[Coming soon]** The GansuGW dataset and pre-built environment packages will be released via Baidu Netdisk.
 
 <a id="graphical-abstract"></a>
 
@@ -125,7 +126,9 @@ We introduce **GansuGW**, the first large-scale, multi-temporal, and multi-resol
 
 | Resource | Contents | Download |
 |---|---|---|
-| GansuGW dataset | RGB images, binary labels, and dataset splits | **Baidu Netdisk: [dataset]()** |
+| GansuGW dataset | RGB images, binary labels, and dataset splits | **Baidu Netdisk: [dataset](https://pan.baidu.com/s/1a_HxN1fA0OGTaYizQf5ZCA?pwd=2609)** |
+| road_data | DeepGlobe and Massachusetts road datasets | **Baidu Netdisk: [road_data](https://pan.baidu.com/s/1ks2DX22JdFN9bgeo6YNMvQ?pwd=2609)** |
+| cross_domain_data | Shaanxi and Inner Mongolia Great Wall remains images and labels | **Baidu Netdisk: [cross_domain_data](https://pan.baidu.com/s/1S-UUIxXQsvmf1XZ0EG8-YA?pwd=2609)** |
 | Environment wheels | Linux wheels for GDAL 3.4.3, NATTEN 0.17.3, and Mamba-SSM 2.2.4 | **Baidu Netdisk: [wheels](https://pan.baidu.com/s/1HbeKV9WZ1NHX9Er6DG2ypw?pwd=2608)** |
 | SegMAN-S pretrained weights | ImageNet-1K pretrained backbone | **Baidu Netdisk: [weights](https://pan.baidu.com/s/1xGJlWAbUHDk4x3sEMKza3w?pwd=2608)** |
 
