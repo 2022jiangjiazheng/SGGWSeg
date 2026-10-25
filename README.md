@@ -127,6 +127,7 @@ We introduce **GansuGW**, the first large-scale, multi-temporal, and multi-resol
 | Resource | Contents | Download |
 |---|---|---|
 | GansuGW dataset | RGB images, binary labels, and dataset splits | **Baidu Netdisk: [dataset](https://pan.baidu.com/s/1a_HxN1fA0OGTaYizQf5ZCA?pwd=2609)** |
+| test_data | Original test images and patches with cropping information | **Baidu Netdisk: [test_data](https://pan.baidu.com/s/1y9hAe1c8is7qXft4TKgCfQ?pwd=2610)** |
 | road_data | DeepGlobe and Massachusetts road datasets | **Baidu Netdisk: [road_data](https://pan.baidu.com/s/1ks2DX22JdFN9bgeo6YNMvQ?pwd=2609)** |
 | cross_domain_data | Shaanxi and Inner Mongolia Great Wall remains images and labels | **Baidu Netdisk: [cross_domain_data](https://pan.baidu.com/s/1S-UUIxXQsvmf1XZ0EG8-YA?pwd=2609)** |
 | Environment wheels | Linux wheels for GDAL 3.4.3, NATTEN 0.17.3, and Mamba-SSM 2.2.4 | **Baidu Netdisk: [wheels](https://pan.baidu.com/s/1HbeKV9WZ1NHX9Er6DG2ypw?pwd=2608)** |
